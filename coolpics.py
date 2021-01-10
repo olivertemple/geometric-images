@@ -94,21 +94,32 @@ def shape3(num,i,w,setcolor):
             plt.plot([-(i-x),0],[-(x-1),-(i-x)], color=setcolor, linewidth=w)
 
 
+def threedimensional1(i):
+    fig = plt.figure()
+    ax = plt.axes(projection='3d')
+    for x in range(1,i):
+        ax.plot3D([0,i-x],[x,0],[0,0])
+        ax.plot3D([0,0],[x,0],[0,i-x])
+        ax.plot3D([x,0],[0,0],[0,i-x])
 
-i = 4
+
+
+
+i = 20
 w=0.5
 num = 1
 setcolor = ('black')
-if num>0:
-    plt.plot([0,0],[0,i-1],color=setcolor, linewidth=w)
-    plt.plot([0,i-1],[0,0],color=setcolor, linewidth=w)
-if num>1:
-    plt.plot([0,0],[0,-i+1],color=setcolor, linewidth=w)
-if num>2:
-    plt.plot([0,-i+1],[0,0],color=setcolor, linewidth=w)
+#if num>0:
+#    plt.plot([0,0],[0,i-1],color=setcolor, linewidth=w)
+#    plt.plot([0,i-1],[0,0],color=setcolor, linewidth=w)
+#if num>1:
+#    plt.plot([0,0],[0,-i+1],color=setcolor, linewidth=w)
+#if num>2:
+#    plt.plot([0,-i+1],[0,0],color=setcolor, linewidth=w)
 
 #triinmiddle(num,i,w,"red")
 #original(num,i,w,"blue")
 #shape3(num,i,w,setcolor)
+threedimensional1(i)
 plt.show() 
 
