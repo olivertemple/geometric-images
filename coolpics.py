@@ -93,6 +93,13 @@ def shape3(num,i,w,setcolor):
             plt.plot([-(x-1),-(i-x)],[-(i-x),0], color=setcolor, linewidth=w)
             plt.plot([-(i-x),0],[-(x-1),-(i-x)], color=setcolor, linewidth=w)
 
+def shape4 (num, i, w, setcolor):
+    for x in range(1,(i//2)+1):
+        print(i//2)
+        print(x)
+        plt.plot([0,x+1],[i-x+1,0])
+        plt.plot([0,i-x+1],[i-x-1,x-1])
+        plt.plot([x-1,i-x-1],[0,x+1])
 i = 4
 w=0.5
 num = 1
@@ -108,5 +115,6 @@ if num>2:
 #triinmiddle(num,i,w,"red")
 #original(num,i,w,"blue")
 #shape3(num,i,w,setcolor)
+shape4(num,i,w,setcolor)
 plt.show() 
 
