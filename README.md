@@ -1,14 +1,9 @@
-# geometric-images
+# Geometric Images
 Creates Various Geomentric images using for loops
 There are currently 3 different images that can be generated both in 2D and 3D. Colours can be changes and up to two images of the same dimensions can be overlayed.
 
 # Motovation
 I did this project because i was bored during the 3rd UK Covid-19 lockdown, and it was something that i had wanted to try for a few months, just hadnt found the time.
-
-# Examples
-Here are two examples of 2, 2D images overlayed in different colours.
-<img src='/outputs/example1.png'>
-<img src='/outputs/example2.png'>
 
 # Instilation
 To install requirements, run:
@@ -37,4 +32,5 @@ optional arguments:
   
   # Example Code
   ```python .\main.py -dimensions 2 -i 30 -w 0.4 -num 4 -shape 1 -shape2 2 -colour darkorange -colour2 pink```
-  <img src='/outputs/examplecodeoutput.pmg'>
+  
+  <img src='/outputs/examplecodeoutput.png'>
