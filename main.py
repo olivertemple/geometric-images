@@ -461,6 +461,6 @@ else:
             threedimensionalshape3(num,i,w,setcolor2,ax)
 
 #saves the output
-plt.savefig(str(args.dimensions) + 'D, ' + str(args.i)+' ,'+str(args.shape))
+#plt.savefig(str(args.dimensions) + 'D, ' + str(args.i)+' ,'+str(args.shape))
 #shows the outputs
 plt.show() 
