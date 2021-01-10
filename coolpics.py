@@ -100,6 +100,9 @@ def shape4 (num, i, w, setcolor):
         plt.plot([0,x+1],[i-x+1,0])
         plt.plot([0,i-x+1],[i-x-1,x-1])
         plt.plot([x-1,i-x-1],[0,x+1])
+        
+
+
 i = 4
 w=0.5
 num = 1
