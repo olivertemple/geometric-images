@@ -31,6 +31,10 @@ optional arguments:
   -num NUM              How many quadrants to be filled, 1-4.
   -shape SHAPE          Shape 1 number (1-3).
   -shape2 SHAPE2        Shape 2 number (optional)(1-3).
-  -colour COLOUR        Colour of shape 1.
-  -colour2 COLOUR2      Colour of shape 2.
+  -colour COLOUR        Colour of shape 1, either as a word, hex or RGB.
+  -colour2 COLOUR2      Colour of shape 2, either as a word, hex or RGB.
   ```
+  
+  # Example Code
+  ```python .\main.py -dimensions 2 -i 30 -w 0.4 -num 4 -shape 1 -shape2 2 -colour darkorange -colour2 pink```
+  <img src='/outputs/examplecodeoutput.pmg'>
