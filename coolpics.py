@@ -93,6 +93,8 @@ def shape3(num,i,w,setcolor):
             plt.plot([-(x-1),-(i-x)],[-(i-x),0], color=setcolor, linewidth=w)
             plt.plot([-(i-x),0],[-(x-1),-(i-x)], color=setcolor, linewidth=w)
 
+
+
 i = 4
 w=0.5
 num = 1
