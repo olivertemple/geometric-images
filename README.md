@@ -1,4 +1,4 @@
-# geometric-images
+# Geometric Images
 Creates Various Geomentric images using for loops
 There are currently 3 different images that can be generated both in 2D and 3D. Colours can be changes and up to two images of the same dimensions can be overlayed.
 
