@@ -409,9 +409,9 @@ parser.add_argument('-shape',type=int, default=1, help='Shape 1 number (1-3).')
 #2nd shape (optional)
 parser.add_argument('-shape2',type=int, default=0, help='Shape 2 number (optional)(1-3).')
 #colour of the first shape
-parser.add_argument('-colour', help='Colour of shape 1.')
+parser.add_argument('-colour', help='Colour of shape 1, either as a word, hex or RGB')
 #colour of the second shape
-parser.add_argument('-colour2', help='Colour of shape 2.')
+parser.add_argument('-colour2', help='Colour of shape 2, either as a word, hex or RGB')
 args = parser.parse_args()
 
 i = args.i
