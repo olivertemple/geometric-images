@@ -117,7 +117,7 @@ def shape3(num,i,w,setcolor):
             plt.plot([-(i-x),0],[-(x-1),-(i-x)], color=setcolor, linewidth=w)
 
 
-def threedimensional1(i):
+def threedimensionaloriginal(num,i,w,setcolor):
     fig = plt.figure()
     ax = plt.axes(projection='3d')
     if num>0:
@@ -168,6 +168,32 @@ def threedimensional1(i):
             ax.plot3D([0,0],[-x,0],[0,-(i-x)], color=setcolor, linewidth=w)
             ax.plot3D([-x,0],[0,0],[0,-(i-x)], color=setcolor, linewidth=w)
 
+def threedimensionaltriinmiddle(num,i,w,setcolor):
+    fig = plt.figure()
+    ax = plt.axes(projection='3d')
+    if num>0:
+        ax.plot([0,0,0],[0,i-1,0],color=setcolor, linewidth=w)
+        ax.plot([0,0],[0,0],[0,i-1],color=setcolor, linewidth=w)        
+        ax.plot([0,i-1,0],[0,0,0],color=setcolor, linewidth=w)
+    if num>1:
+        ax.plot([0,0],[0,-i+1],color=setcolor, linewidth=w)
+    if num>2:
+        ax.plot([0,-i+1],[0,0],color=setcolor, linewidth=w)
+    if num>3:
+        ax.plot([0,0],[0,0],[0,-(i-1)],color=setcolor, linewidth=w)
+    
+    for x in range(1,i):
+        ax.plot([0,i-x],[i-x,x],[0,0], color=setcolor,linewidth = w)
+        ax.plot([0,x],[i-x,0],[0,0], color=setcolor,linewidth = w)
+        ax.plot([x,i-x],[0,x],[0,0], color=setcolor,linewidth = w)
+
+        ax.plot([0,0],[i-x,x],[0,i-x], color=setcolor,linewidth = w)
+        ax.plot([0,0],[i-x,0],[0,x], color=setcolor,linewidth = w)
+        ax.plot([0,0],[0,x],[x,i-x], color=setcolor,linewidth = w)
+
+        ax.plot([0,i-x],[0,0],[i-x,x], color=setcolor,linewidth = w)
+        ax.plot([0,x],[0,0],[i-x,0], color=setcolor,linewidth = w)
+        ax.plot([x,i-x],[0,0],[0,x], color=setcolor,linewidth = w)
 
 
 
@@ -182,6 +208,7 @@ setcolor = ('black')
 #triinmiddle(num,i,w,"red")
 #original(num,i,w,"blue")
 #shape3(num,i,w,setcolor)
-threedimensional1(i)
+#threedimensionaloriginal(num,i,w,setcolor)
+threedimensionaltriinmiddle(num,i,w,setcolor)
 plt.show() 
 
