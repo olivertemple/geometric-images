@@ -5,12 +5,6 @@ There are currently 3 different images that can be generated both in 2D and 3D. 
 # Motovation
 I did this project because i was bored during the 3rd UK Covid-19 lockdown, and it was something that i had wanted to try for a few months, just hadnt found the time.
 
-# Examples
-Here are two examples of 2, 2D images overlayed in different colours:
-
-<img src='/outputs/example1.png'>
-<img src='/outputs/example2.png'>
-
 # Instilation
 To install requirements, run:
 
