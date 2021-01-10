@@ -38,4 +38,5 @@ optional arguments:
   
   # Example Code
   ```python .\main.py -dimensions 2 -i 30 -w 0.4 -num 4 -shape 1 -shape2 2 -colour darkorange -colour2 pink```
+  
   <img src='/outputs/examplecodeoutput.png'>
