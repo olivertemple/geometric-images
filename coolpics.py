@@ -183,18 +183,109 @@ def threedimensionaltriinmiddle(num,i,w,setcolor):
         ax.plot([0,0],[0,0],[0,-(i-1)],color=setcolor, linewidth=w)
     
     for x in range(1,i):
-        ax.plot([0,i-x],[i-x,x],[0,0], color=setcolor,linewidth = w)
-        ax.plot([0,x],[i-x,0],[0,0], color=setcolor,linewidth = w)
-        ax.plot([x,i-x],[0,x],[0,0], color=setcolor,linewidth = w)
+        if num>0:
+            ax.plot([0,i-x],[i-x,x],[0,0], color=setcolor,linewidth = w)
+            ax.plot([0,x],[i-x,0],[0,0], color=setcolor,linewidth = w)
+            ax.plot([x,i-x],[0,x],[0,0], color=setcolor,linewidth = w)
 
-        ax.plot([0,0],[i-x,x],[0,i-x], color=setcolor,linewidth = w)
-        ax.plot([0,0],[i-x,0],[0,x], color=setcolor,linewidth = w)
-        ax.plot([0,0],[0,x],[x,i-x], color=setcolor,linewidth = w)
+            ax.plot([0,0],[i-x,x],[0,i-x], color=setcolor,linewidth = w)
+            ax.plot([0,0],[i-x,0],[0,x], color=setcolor,linewidth = w)
+            ax.plot([0,0],[0,x],[x,i-x], color=setcolor,linewidth = w)
 
-        ax.plot([0,i-x],[0,0],[i-x,x], color=setcolor,linewidth = w)
-        ax.plot([0,x],[0,0],[i-x,0], color=setcolor,linewidth = w)
-        ax.plot([x,i-x],[0,0],[0,x], color=setcolor,linewidth = w)
+            ax.plot([0,i-x],[0,0],[i-x,x], color=setcolor,linewidth = w)
+            ax.plot([0,x],[0,0],[i-x,0], color=setcolor,linewidth = w)
+            ax.plot([x,i-x],[0,0],[0,x], color=setcolor,linewidth = w)
 
+        if num>1:
+            ax.plot([0,i-x],[-(i-x),-x],[0,0], color=setcolor,linewidth = w)
+            ax.plot([0,x],[-(i-x),0],[0,0], color=setcolor,linewidth = w)
+            ax.plot([x,i-x],[0,-(x)],[0,0], color=setcolor,linewidth = w)
+
+            ax.plot([0,0],[-(i-x),-x],[0,i-x], color=setcolor,linewidth = w)
+            ax.plot([0,0],[-(i-x),0],[0,x], color=setcolor,linewidth = w)
+            ax.plot([0,0],[0,-x],[x,i-x], color=setcolor,linewidth = w)
+
+            ax.plot([0,i-x],[0,0],[i-x,x], color=setcolor,linewidth = w)
+            ax.plot([0,x],[0,0],[i-x,0], color=setcolor,linewidth = w)
+            ax.plot([x,i-x],[0,0],[0,x], color=setcolor,linewidth = w)
+
+        if num>2:
+            ax.plot([0,-(i-x)],[i-x,x],[0,0], color=setcolor,linewidth = w)
+            ax.plot([0,-x],[i-x,0],[0,0], color=setcolor,linewidth = w)
+            ax.plot([-x,-(i-x)],[0,x],[0,0], color=setcolor,linewidth = w)
+
+            ax.plot([0,0],[i-x,x],[0,i-x], color=setcolor,linewidth = w)
+            ax.plot([0,0],[i-x,0],[0,x], color=setcolor,linewidth = w)
+            ax.plot([0,0],[0,x],[x,i-x], color=setcolor,linewidth = w)
+
+            ax.plot([0,-(i-x)],[0,0],[i-x,x], color=setcolor,linewidth = w)
+            ax.plot([0,-x],[0,0],[i-x,0], color=setcolor,linewidth = w)
+            ax.plot([-x,-(i-x)],[0,0],[0,x], color=setcolor,linewidth = w)
+            
+            ax.plot([0,-(i-x)],[-(i-x),-x],[0,0], color=setcolor,linewidth = w)
+            ax.plot([0,-x],[-(i-x),0],[0,0], color=setcolor,linewidth = w)
+            ax.plot([-x,-(i-x)],[0,-x],[0,0], color=setcolor,linewidth = w)
+
+            ax.plot([0,0],[-(i-x),-x],[0,i-x], color=setcolor,linewidth = w)
+            ax.plot([0,0],[-(i-x),0],[0,x], color=setcolor,linewidth = w)
+            ax.plot([0,0],[0,-x],[x,i-x], color=setcolor,linewidth = w)
+
+            ax.plot([0,-(i-x)],[0,0],[i-x,x], color=setcolor,linewidth = w)
+            ax.plot([0,-x],[0,0],[i-x,0], color=setcolor,linewidth = w)
+            ax.plot([-x,-(i-x)],[0,0],[0,x], color=setcolor,linewidth = w)
+
+        if num>3:
+            ax.plot([0,i-x],[i-x,x],[0,0], color=setcolor,linewidth = w)
+            ax.plot([0,x],[i-x,0],[0,0], color=setcolor,linewidth = w)
+            ax.plot([x,i-x],[0,x],[0,0], color=setcolor,linewidth = w)
+
+            ax.plot([0,0],[i-x,x],[0,-(i-x)], color=setcolor,linewidth = w)
+            ax.plot([0,0],[i-x,0],[0,-x], color=setcolor,linewidth = w)
+            ax.plot([0,0],[0,x],[-x,-(i-x)], color=setcolor,linewidth = w)
+
+            ax.plot([0,i-x],[0,0],[-(i-x),-x], color=setcolor,linewidth = w)
+            ax.plot([0,x],[0,0],[-(i-x),0], color=setcolor,linewidth = w)
+            ax.plot([x,i-x],[0,0],[0,-x], color=setcolor,linewidth = w)
+
+            ax.plot([0,i-x],[-(i-x),-x],[0,0], color=setcolor,linewidth = w)
+            ax.plot([0,x],[-(i-x),0],[0,0], color=setcolor,linewidth = w)
+            ax.plot([x,i-x],[0,-(x)],[0,0], color=setcolor,linewidth = w)
+
+            ax.plot([0,0],[-(i-x),-x],[0,-(i-x)], color=setcolor,linewidth = w)
+            ax.plot([0,0],[-(i-x),0],[0,-x], color=setcolor,linewidth = w)
+            ax.plot([0,0],[0,-x],[-x,-(i-x)], color=setcolor,linewidth = w)
+
+            ax.plot([0,i-x],[0,0],[-(i-x),-x], color=setcolor,linewidth = w)
+            ax.plot([0,x],[0,0],[-(i-x),0], color=setcolor,linewidth = w)
+            ax.plot([x,i-x],[0,0],[0,-x], color=setcolor,linewidth = w)
+
+            ax.plot([0,-(i-x)],[i-x,x],[0,0], color=setcolor,linewidth = w)
+            ax.plot([0,-x],[i-x,0],[0,0], color=setcolor,linewidth = w)
+            ax.plot([-x,-(i-x)],[0,x],[0,0], color=setcolor,linewidth = w)
+
+            ax.plot([0,0],[i-x,x],[0,-(i-x)], color=setcolor,linewidth = w)
+            ax.plot([0,0],[i-x,0],[0,-x], color=setcolor,linewidth = w)
+            ax.plot([0,0],[0,x],[-x,-(i-x)], color=setcolor,linewidth = w)
+
+            ax.plot([0,-(i-x)],[0,0],[-(i-x),-x], color=setcolor,linewidth = w)
+            ax.plot([0,-x],[0,0],[-(i-x),0], color=setcolor,linewidth = w)
+            ax.plot([-x,-(i-x)],[0,0],[0,-x], color=setcolor,linewidth = w)
+
+            
+            ax.plot([0,-(i-x)],[-(i-x),-x],[0,0], color=setcolor,linewidth = w)
+            ax.plot([0,-x],[-(i-x),0],[0,0], color=setcolor,linewidth = w)
+            ax.plot([-x,-(i-x)],[0,-x],[0,0], color=setcolor,linewidth = w)
+
+            ax.plot([0,0],[-(i-x),-x],[0,-(i-x)], color=setcolor,linewidth = w)
+            ax.plot([0,0],[-(i-x),0],[0,-x], color=setcolor,linewidth = w)
+            ax.plot([0,0],[0,-x],[-x,-(i-x)], color=setcolor,linewidth = w)
+
+            ax.plot([0,-(i-x)],[0,0],[-(i-x),-x], color=setcolor,linewidth = w)
+            ax.plot([0,-x],[0,0],[-(i-x),0], color=setcolor,linewidth = w)
+            ax.plot([-x,-(i-x)],[0,0],[0,-x], color=setcolor,linewidth = w)
+
+
+        
 
 
 
