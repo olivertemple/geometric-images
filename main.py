@@ -2,8 +2,11 @@
 #Programming by Oliver Temple
 #https://github.com/olivertemple/geometric-images
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 import math
 import argparse
+import PySimpleGUI as sg
+
 
 def original(num, i, w,setcolor): #original shape
     #one quadrant
@@ -421,46 +424,123 @@ dim = args.dimensions
 setcolor = args.colour
 setcolor2 = args.colour2
 
+
 #two dimensions
-if dim==2:
+#if dim==2:
+#    plt.figure()
     #1st shape
-    if args.shape==1:
-        original(num,i,w,setcolor)
-    elif args.shape==2:
-        triinmiddle(num,i,w,setcolor)
-    elif args.shape==3:
-        shape3(num,i,w,setcolor)
+#    if args.shape==1:
+#        original(num,i,w,setcolor)
+#    elif args.shape==2:
+#        triinmiddle(num,i,w,setcolor)
+#    elif args.shape==3:
+#        shape3(num,i,w,setcolor)
     #second shape if argument is given
-    if args.shape2 > 0:
-        if args.shape2==1:
-            original(num,i,w,setcolor2)
-        elif args.shape2==2:
-            triinmiddle(num,i,w,setcolor2)
-        elif args.shape2==3:
-            shape3(num,i,w,setcolor2)
+#    if args.shape2 > 0:
+#        if args.shape2==1:
+#            original(num,i,w,setcolor2)
+#        elif args.shape2==2:
+#            triinmiddle(num,i,w,setcolor2)
+ #       elif args.shape2==3:
+ #           shape3(num,i,w,setcolor2)
 
 #three dimensions
-else: 
+#else: 
     #creates 3D axis
-    fig = plt.figure()
-    ax = plt.axes(projection='3d')
-    #1st shape
-    if args.shape==1:
-        threedimensionaloriginal(num,i,w,setcolor,ax)
-    elif args.shape==2:
-        threedimensionaltriinmiddle(num,i,w,setcolor,ax)
-    elif args.shape==3:
-        threedimensionalshape3(num,i,w,setcolor,ax)
+ #   fig = plt.figure()
+ #   ax = plt.axes(projection='3d')
+ #   #1st shape
+ #   if args.shape==1:
+ #       threedimensionaloriginal(num,i,w,setcolor,ax)
+ #   elif args.shape==2:
+ #       threedimensionaltriinmiddle(num,i,w,setcolor,ax)
+ #   elif args.shape==3:
+ #       threedimensionalshape3(num,i,w,setcolor,ax)
     #2nd shape if argument is given
-    if args.shape2 > 0:
-        if args.shape2==1:
-            threedimensionaloriginal(num,i,w,setcolor2,ax)
-        elif args.shape2==2:
-            threedimensionaltriinmiddle(num,i,w,setcolor2,ax)
-        elif args.shape2==3:
-            threedimensionalshape3(num,i,w,setcolor2,ax)
+ #   if args.shape2 > 0:
+  #          threedimensionaloriginal(num,i,w,setcolor2,ax)
+ ##       if args.shape2==1:
+ #       elif args.shape2==2:
+ #           threedimensionaltriinmiddle(num,i,w,setcolor2,ax)
+ #       elif args.shape2==3:
+ #           threedimensionalshape3(num,i,w,setcolor2,ax)
 
 #saves the output
 #plt.savefig(str(args.dimensions) + 'D, ' + str(args.i)+' ,'+str(args.shape))
 #shows the outputs
-plt.show() 
+#plt.show() 
+
+
+
+def draw_figure_w_toolbar(canvas, fig, canvas_toolbar):
+    if canvas.children:
+        for child in canvas.winfo_children():
+            child.destroy()
+    if canvas_toolbar.children:
+        for child in canvas_toolbar.winfo_children():
+            child.destroy()
+    figure_canvas_agg = FigureCanvasTkAgg(fig, master=canvas)
+    figure_canvas_agg.draw()
+    toolbar = Toolbar(figure_canvas_agg, canvas_toolbar)
+    toolbar.update()
+    figure_canvas_agg.get_tk_widget().pack(side='right',fill='both',expand=1)
+
+class Toolbar(NavigationToolbar2Tk):
+    def __init__(self, *args, **kwargs):
+        super(Toolbar, self).__init__(*args,**kwargs)
+
+
+menu_def = [['&file',['&save    Ctrl-S']]]
+selections = [
+[sg.Button( image_filename="./outputs/2D, 20 ,1.png", image_subsample=2)],
+[sg.Button(image_filename="./outputs/2D, 20 ,2.png", image_subsample=2)],
+[sg.Button(image_filename="./outputs/2D, 20 ,3.png", image_subsample=2)],
+]
+
+layout = [
+[sg.Text("Geometrical shape generator")],
+[sg.Text("This program will generate either 2D or 3D geometrical shapes, depending on your input.")],
+[sg.Menu(menu_def)],   
+[sg.Button("Run")],
+[sg.Button("Close")],
+[sg.Button("Plot")],
+[sg.Canvas(key='fig_cv', size=(800,800))],
+[sg.Canvas(key='controls_cv')],
+#[sg.Checkbox(text='test')],
+#[sg.Button( image_filename="./outputs/2D, 20 ,1.png", image_subsample=2)],
+#[sg.Button(image_filename="./outputs/2D, 20 ,2.png", image_subsample=2)],
+#[sg.Button(image_filename="./outputs/2D, 20 ,3.png", image_subsample=2)]
+]
+
+window= sg.Window("Geometrical Shape Generator", layout, resizable=True)
+
+
+while True:
+    event, values = window.read()
+    if event=='Close' or event == sg.WIN_CLOSED:
+        break
+    elif event == 'Plot':
+        ax = plt.axes(projection='3d')
+        threedimensionaloriginal(4,20,0.5,'black',ax)
+
+        plt.figure(1)
+        fig = plt.gcf()
+        DPI=fig.get_dpi()
+
+        fig.set_size_inches(404*2/float(DPI),404/float(DPI))
+        draw_figure_w_toolbar(window['fig_cv'].TKCanvas, fig, window['controls_cv'].TKCanvas)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
