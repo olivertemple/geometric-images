@@ -1,6 +1,6 @@
 # Geometric Images
 Creates Various Geometric images using for loops
-There are currently 3 different images that can be generated both in 2D and 3D. Colours can be changes and images can be overlaid.
+There are currently 3 different images that can be generated both in 2D and 3D. Colours can be changes and images of the same dimensions can be overlaid.
 
 # Instilation
 To install requirements, run:
