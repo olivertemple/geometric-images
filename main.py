@@ -421,7 +421,7 @@ sg.theme('DarkTeal6')
 layout = [ #Elements of the GUI
 [sg.Text("Geometrical shape generator", font=("Helvetica",40))],
 [sg.Text("This program will generate either 2D or 3D geometrical shapes, depending on your input.",font=("Helvetica",15))],
-[sg.Button("1",image_filename="./outputs/2D, 20 ,1.png", image_subsample=2, key='original'), sg.Button("2",image_filename="./outputs/2D, 20 ,2.png", image_subsample=2,key='triinmiddle'), sg.Button("3",image_filename="./outputs/2D, 20 ,3.png", image_subsample=2, key='shape3')],
+[sg.Button("1",image_filename="./resources/2D, 20 ,1.png", image_subsample=2, key='original'), sg.Button("2",image_filename="./resources/2D, 20 ,2.png", image_subsample=2,key='triinmiddle'), sg.Button("3",image_filename="./resources/2D, 20 ,3.png", image_subsample=2, key='shape3')],
 [sg.Checkbox('Dimensions, Tick for 3D, leave for 2D', default=False, auto_size_text=True, key='dim',font=("Helvetica",15))],
 [sg.Text(text='The Shape being Plotted:\n',key='text_box', size = (100,2),pad=(0,0),font=("Helvetica",15))],
 [sg.Text(text="Colour, in either Hex (#AABBCC), RGB(255,255,255) or as a word (red):",pad=(0,0),font=("Helvetica",15)),sg.Input(default_text='black', key='setcolor')],

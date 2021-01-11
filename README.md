@@ -7,31 +7,11 @@ To install requirements, run:
 
 `pip3 install -r requirements.txt`
 
-This will install matplotlib and argparse
+This will install matplotlib and pysimplegui
 # Usage
-```
-main.py [-h] [-dimensions DIMENSIONS] [-i I] [-w W] [-num NUM] [-shape SHAPE] [-shape2 SHAPE2] [-colour COLOUR] [-colour2 COLOUR2]
+Run the python code, and a pysimplegui will pop up, where you will be able to plot images, as seen below:
+<img src="/resources/GUI example.png">
+Select one of the 2D representations of the shapes (a brief description of what is selected will be show), tick the box to specify 2D or 3D. Next change the other fields, such as size and colour to the desired values (these can be left as default). For large sized images, a smaller line width is advised.
+Press 'Plot' and the image will be shown. You can keep on ploting over the top of other images, however, if the dimensions are changes (e.g. from 3D to 2D) then the images will be cleared. The 'Reset' button can also be used to clear the image.
+If you wish to save your image, click the save icon on the right of the toolbar at the bottom.
 
-Draw geometric Images.
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -dimensions DIMENSIONS
-                        2D/3D output image (2 for 2D, 3 for 3D).
-  -i I                  Size of output image.
-  -w W                  Width of line, recommended less than 1.
-  -num NUM              How many quadrants to be filled, 1-4.
-  -shape SHAPE          Shape 1 number (1-3).
-  -shape2 SHAPE2        Shape 2 number (optional)(1-3).
-  -colour COLOUR        Colour of shape 1, either as a word, hex or RGB.
-  -colour2 COLOUR2      Colour of shape 2, either as a word, hex or RGB.
-  ```
-  
-  # Example Code
-  ```python .\main.py -dimensions 2 -i 30 -w 0.4 -num 4 -shape 1 -shape2 2 -colour darkorange -colour2 pink```
-  
-  <img src='/outputs/examplecodeoutput.png'>
-  
-  ```python .\main.py -dimensions 3 -num 4 -shape 1```
-  
-  <img src='/outputs/3dexample.png'>
