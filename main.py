@@ -397,7 +397,7 @@ def threedimensionalshape3(num,i,w,setcolor):#3D version of the 3rd shape
             plt.plot([(i-x),0],[0,0],[-(x-1),-(i-x)], color=setcolor, linewidth=w)
             plt.plot([(x-1),(i-x)],[0,0],[-(i-x),0], color=setcolor, linewidth=w)       
 
-#inserts the plot with the toolbar into the interface
+#inserts the plot with the toolbar into the interface (i didn't write this so....)
 def draw_figure_w_toolbar(canvas, fig, canvas_toolbar):
     if canvas.children:
         for child in canvas.winfo_children():
@@ -415,9 +415,10 @@ class Toolbar(NavigationToolbar2Tk):
     def __init__(self, *args, **kwargs):
         super(Toolbar, self).__init__(*args,**kwargs)
 
+#sets the theme
 sg.theme('DarkTeal6')
 #DarkTeal1/11/6
-layout = [
+layout = [ #Elements of the GUI
 [sg.Text("Geometrical shape generator", font=("Helvetica",40))],
 [sg.Text("This program will generate either 2D or 3D geometrical shapes, depending on your input.",font=("Helvetica",15))],
 [sg.Button("1",image_filename="./outputs/2D, 20 ,1.png", image_subsample=2, key='original'), sg.Button("2",image_filename="./outputs/2D, 20 ,2.png", image_subsample=2,key='triinmiddle'), sg.Button("3",image_filename="./outputs/2D, 20 ,3.png", image_subsample=2, key='shape3')],
@@ -430,17 +431,27 @@ layout = [
 [sg.Canvas(key='controls_cv')]
 ]
 
+#Shows the window
 window= sg.Window("Geometrical Shape Generator", layout, resizable=True).finalize()
+#Maximises the window
 window.Maximize()
 
+#defining a few variables
 shape = 1
 string = 'The Shape being Plotted:\n'
 d2 = False
 d3 = False
+
+#While loop for updating the interface
 while True:
+    #collects the required data
     event, values = window.read()
+
+    #Closes the interface
     if event=='Close' or event == sg.WIN_CLOSED:
         break
+
+    #defines which shape has been selected
     if event=='original':
         shape=1
     elif event=='triinmiddle':
@@ -448,6 +459,7 @@ while True:
     elif event=='shape3':
         shape = 3
 
+    #Sets up the axis for either 2D or 3D if there is nothing there already
     if values['dim']==True:
         dim = 3
         if d3 == False:
@@ -464,6 +476,8 @@ while True:
             window.Element('text_box').update(string)
         d2 = True
         d3 = False
+
+    #Clears the axis
     if event == 'Reset':
         string = 'The Shape being Plotted:\n'
         window.Element('text_box').update(string)
@@ -481,37 +495,42 @@ while True:
             DPI=fig.get_dpi()
             fig.set_size_inches(404*2/float(DPI),404/float(DPI))
             draw_figure_w_toolbar(window['fig_cv'].TKCanvas, fig, window['controls_cv'].TKCanvas)
+    #Shows which shape and dimensions are selected
     else:
         window.Element('text_box').update(string+' Shape' + str(shape)+', '+str(dim)+'D.')
 
+    #Runs when plot button is pressed
     if event == 'Plot': 
+        #adds the shape that is being plotted to a string
         string += (' Shape' + str(shape)+', '+str(dim)+'D.')
+        #updates the 'text_box' element on the interface
         window.Element('text_box').update(string)      
+        #moves values from values dictionary to variables
         setcolor = (values['setcolor'])
         i = int(values["i"])
         num = int(values["num"])
         w = float(values['w'])
+
+        #2D
         if dim == 2:
-            #ax = plt.axes()
             if shape == 1:
                 original(num, i, w, setcolor)
             elif shape==2:
                 triinmiddle(num, i, w, setcolor)
             elif shape==3:
                 shape3(num, i, w,setcolor)
+        #3D
         elif dim==3:
-            #ax = plt.axes(projection='3d')
             if shape == 1:
                 threedimensionaloriginal(num, i, w, setcolor)
             elif shape==2:
                 threedimensionaltriinmiddle(num, i, w, setcolor)
             elif shape==2:
                 threedimensionalshape3(num, i, w , setcolor)
-
+        #Shows the plot in the interface
         plt.figure(1)
         fig = plt.gcf()
         DPI=fig.get_dpi()
-
         fig.set_size_inches(404*2/float(DPI),404/float(DPI))
         draw_figure_w_toolbar(window['fig_cv'].TKCanvas, fig, window['controls_cv'].TKCanvas)
 
