@@ -397,6 +397,7 @@ def threedimensionalshape3(num,i,w,setcolor):#3D version of the 3rd shape
             plt.plot([(i-x),0],[0,0],[-(x-1),-(i-x)], color=setcolor, linewidth=w)
             plt.plot([(x-1),(i-x)],[0,0],[-(i-x),0], color=setcolor, linewidth=w)       
 
+#inserts the plot with the toolbar into the interface
 def draw_figure_w_toolbar(canvas, fig, canvas_toolbar):
     if canvas.children:
         for child in canvas.winfo_children():
@@ -414,17 +415,18 @@ class Toolbar(NavigationToolbar2Tk):
     def __init__(self, *args, **kwargs):
         super(Toolbar, self).__init__(*args,**kwargs)
 
+sg.theme('DarkTeal6')
+#DarkTeal1/11/6
 layout = [
-[sg.Text("Geometrical shape generator")],
-[sg.Text("This program will generate either 2D or 3D geometrical shapes, depending on your input.")],
-[sg.Menu(menu_def)],
+[sg.Text("Geometrical shape generator", font=("Helvetica",40))],
+[sg.Text("This program will generate either 2D or 3D geometrical shapes, depending on your input.",font=("Helvetica",15))],
 [sg.Button("1",image_filename="./outputs/2D, 20 ,1.png", image_subsample=2, key='original'), sg.Button("2",image_filename="./outputs/2D, 20 ,2.png", image_subsample=2,key='triinmiddle'), sg.Button("3",image_filename="./outputs/2D, 20 ,3.png", image_subsample=2, key='shape3')],
-[sg.Checkbox('Dimensions, Tick for 3D, leave for 2D', default=False, auto_size_text=True, key='dim')],
-[sg.Text(text='The Shape being Plotted:\n',key='text_box', size = (100,2),pad=(0,0))],
-[sg.Text(text="Colour, in either Hex (#AABBCC), RGB(255,255,255) or as a word (red):",pad=(0,0)),sg.Input(default_text='black', key='setcolor')],
-[sg.Text(text='Size of image:',pad=(0,0)),sg.Input(default_text='20', key='i', size = (5,10)), sg.Text(text="Number of quadrants(1-4):", pad=(0,0)), sg.Input(default_text="4", key="num", size=(5,10)), sg.Text(text="Width of lines (only needs adjusting for large sizes", pad=(0,0)),sg.Input(default_text="0.5", key = 'w', size = (5,10))],
-[sg.Button("Plot"),sg.Button("Reset")],
-[sg.Canvas(key='fig_cv', size=(550,550))],
+[sg.Checkbox('Dimensions, Tick for 3D, leave for 2D', default=False, auto_size_text=True, key='dim',font=("Helvetica",15))],
+[sg.Text(text='The Shape being Plotted:\n',key='text_box', size = (100,2),pad=(0,0),font=("Helvetica",15))],
+[sg.Text(text="Colour, in either Hex (#AABBCC), RGB(255,255,255) or as a word (red):",pad=(0,0),font=("Helvetica",15)),sg.Input(default_text='black', key='setcolor')],
+[sg.Text(text='Size of image:',pad=(0,0),font=("Helvetica",15)),sg.Input(default_text='20', key='i', size = (5,10),font=("Helvetica",15)), sg.Text(text="Number of quadrants(1-4):", pad=(0,0),font=("Helvetica",15)), sg.Input(default_text="4", key="num", size=(5,10),font=("Helvetica",15)), sg.Text(text="Width of lines (only needs adjusting for large sizes", pad=(0,0),font=("Helvetica",15)),sg.Input(default_text="0.5", key = 'w', size = (5,10),font=("Helvetica",15))],
+[sg.Button("Plot",font=("Helvetica",15)),sg.Button("Reset",font=("Helvetica",15))],
+[sg.Canvas(key='fig_cv', size=(500,500))],
 [sg.Canvas(key='controls_cv')]
 ]
 
