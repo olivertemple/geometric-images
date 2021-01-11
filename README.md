@@ -3,7 +3,7 @@ Creates Various Geometric images using for loops
 There are currently 3 different images that can be generated both in 2D and 3D. Colours can be changes and images of the same dimensions can be overlaid.
 
 # Instilation
-To install requirements, run:
+To install requirements, in the directory that the repository is cloned into, run:
 
 `pip3 install -r requirements.txt`
 
